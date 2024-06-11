@@ -13,11 +13,11 @@ function App() {
     <Router>
       <div className="container mx-auto px-20 ">
         <Navbar />
-        {pages.map((page) => (
-          <Routes>
-            <Route path={page.path} element={page.element}></Route>
-          </Routes>
-        ))}
+        <Routes>
+          {pages.map((page, index) => (
+            <Route key={index} path={page.path} element={page.element}></Route>
+          ))}
+        </Routes>
       </div>
     </Router>
   );
