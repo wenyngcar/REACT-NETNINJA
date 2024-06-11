@@ -1,12 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import BlogList from "./BlogList";
 
 const Home = () => {
-  const [blogs, setBlogs] = useState([
-    { title: "Unreal Engine 5", body: "lorem ipsum ...", id: 1 },
-    { title: "Unity", body: "lorem ipsum ...", id: 2 },
-    { title: "GoDot", body: "lorem ipsum ...", id: 3 },
-  ]);
+  const [blogs, setBlogs] = useState(null);
 
   const deleteBlog = (id) => {
     /* Returns filtered array and does not affect original array */
@@ -14,11 +10,25 @@ const Home = () => {
     setBlogs(newBlogs);
   };
 
+  useEffect(() => {
+    /* Fetch API */
+    fetch("http://localhost:8000/blogs")
+      .then((res) => {
+        /* Response object */
+        return res.json();
+      })
+      .then((data) => {
+        /* Actual data after parsing the response object. */
+        setBlogs(data);
+      });
+  }, []);
+
   return (
     <div className="home">
       <div className=" text-2xl font-semibold py-6">Home Page</div>
       {/* Blogs Container */}
-      <BlogList blogList={blogs} deleteBlog={deleteBlog} />
+      {blogs && <BlogList blogList={blogs} deleteBlog={deleteBlog} />}{" "}
+      {/* If there is blogs */}
     </div>
   );
 };
