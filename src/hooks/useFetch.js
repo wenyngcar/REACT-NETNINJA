@@ -25,7 +25,7 @@ const useFetch = (url) => {
         setIsPending(false);
         setError(err.message);
       });
-  }, []);
+  }, [url]);
   /* Fire only once on render if dependencies is empty. */
 
   return { data, isPending, error };
