@@ -14,11 +14,19 @@ const Create = () => {
             <input
               className="outline-none border-2 w-full rounded-md px-2 py-1"
               type="text"
+              placeholder="Enter blog title"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
             ></input>
           </div>
           <div className="flex gap-x-3">
             <label className="text-lg">Body</label>
-            <textarea className="outline-none border-2 w-full rounded-md px-2 py-1 min-h-52 h-52"></textarea>
+            <textarea
+              placeholder="Enter blog body..."
+              className="outline-none border-2 w-full rounded-md px-2 py-1 min-h-52 h-52"
+              value={body}
+              onChange={(e) => setBody(e.target.value)}
+            ></textarea>
           </div>
         </form>
       </div>
