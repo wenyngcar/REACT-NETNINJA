@@ -1,10 +1,12 @@
 import { useState } from "react";
 import addBlog from "./components/AddBlog";
+import { useNavigate } from "react-router-dom";
 
 const Create = () => {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [isPending, setIsPending] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -12,6 +14,8 @@ const Create = () => {
 
     setIsPending(true);
     addBlog("http://localhost:8000/blogs", blog, setIsPending);
+
+    navigate("/");
   };
 
   return (
