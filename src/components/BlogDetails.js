@@ -7,7 +7,7 @@ const BlogDetails = () => {
     data: blogs,
     isPending,
     error,
-  } = useFetch("http://localhost:8000/blogs/");
+  } = useFetch("http://localhost:8000/blogs/" + id);
 
   return (
     <div>
@@ -24,18 +24,12 @@ const BlogDetails = () => {
           Loading...
         </div>
       )}
-      {blogs &&
-        blogs.map(
-          (blog) =>
-            blog.id == id && (
-              <div key={blog.id} className="p-3 space-y-4">
-                <p className="text-4xl font-bold text-purple-500">
-                  {blog.title}
-                </p>
-                <p>{blog.body}</p>
-              </div>
-            )
-        )}
+      {blogs && (
+        <div key={blogs.id} className="p-3 space-y-4">
+          <p className="text-4xl font-bold text-purple-500">{blogs.title}</p>
+          <p>{blogs.body}</p>
+        </div>
+      )}
     </div>
   );
 };
