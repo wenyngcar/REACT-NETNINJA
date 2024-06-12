@@ -1,8 +1,8 @@
 import Home from "./Home";
 import Navbar from "./components/navbar";
 import Create from "./Create";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import BlogDetails from "./components/BlogDetails";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
   const pages = [

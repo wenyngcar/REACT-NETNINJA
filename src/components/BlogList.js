@@ -9,11 +9,8 @@ const BlogList = ({ blogList }) => {
     <div className="blog-list space-y-5">
       {/* Single Blog Container */}
       {blogList.map((blog) => (
-        <Link to={`/blogs/${blog.id}`}>
-          <div
-            key={blog.id}
-            className="p-3 hover:shadow-lg transition duration-200"
-          >
+        <Link to={`/blogs/${blog.id}`} key={blog.id}>
+          <div className="p-3 hover:shadow-lg transition duration-200">
             <p className="text-xl font-bold text-purple-500">{blog.title}</p>
             <p>{blog.body}</p>
           </div>
