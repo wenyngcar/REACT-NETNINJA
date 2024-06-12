@@ -1,4 +1,5 @@
 import { useState } from "react";
+import addBlog from "./components/AddBlog";
 
 const Create = () => {
   const [title, setTitle] = useState("");
@@ -7,7 +8,7 @@ const Create = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const blog = { title, body };
-    console.log(blog);
+    addBlog("http://localhost:8000/blogs", blog);
   };
 
   return (
