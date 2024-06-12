@@ -4,11 +4,14 @@ import addBlog from "./components/AddBlog";
 const Create = () => {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
+  const [isPending, setIsPending] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const blog = { title, body };
-    addBlog("http://localhost:8000/blogs", blog);
+
+    setIsPending(true);
+    addBlog("http://localhost:8000/blogs", blog, setIsPending);
   };
 
   return (
@@ -37,9 +40,19 @@ const Create = () => {
               onChange={(e) => setBody(e.target.value)}
             ></textarea>
           </div>
-          <button className="border border-black w-full px-2 py-1 rounded-md hover:text-white hover:bg-red-500 hover:border-red-500 transition duration-150">
-            Add Blog
-          </button>
+          {!isPending && (
+            <button className="border border-black w-full px-2 py-1 rounded-md hover:text-white hover:bg-red-500 hover:border-red-500 transition duration-150">
+              Add Blog
+            </button>
+          )}
+          {isPending && (
+            <button
+              disabled
+              className="border border-black w-full px-2 py-1 rounded-md hover:text-white hover:bg-red-500 hover:border-red-500 transition duration-150"
+            >
+              Adding blog...
+            </button>
+          )}
         </form>
       </div>
     </div>

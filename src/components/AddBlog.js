@@ -1,4 +1,4 @@
-const addBlog = (url, blog) => {
+const addBlog = (url, blog, setIsPending) => {
   fetch(url, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -6,13 +6,11 @@ const addBlog = (url, blog) => {
   })
     .then(() => {
       console.log("New blog added");
+      setIsPending(false);
     })
     .catch(() => {
       console.log("There was an error in adding blogs.");
     });
-
-  //   return;
-  //   <div></div>;
 };
 
 export default addBlog;
