@@ -2,6 +2,7 @@ import Home from "./Home";
 import Navbar from "./components/navbar";
 import Create from "./Create";
 import BlogDetails from "./components/BlogDetails";
+import NotFound from "./NotFound";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
     { path: "/", element: <Home /> },
     { path: "/create", element: <Create /> },
     { path: "/blogs/:id", element: <BlogDetails /> },
+    { path: "*", element: <NotFound /> },
   ];
 
   return (
