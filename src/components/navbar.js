@@ -7,8 +7,12 @@ const Navbar = () => {
         <p className="text-red-500 text-3xl font-semibold ">Googoo Blog</p>
       </Link>
       <div className="flex space-x-4">
-        <Link to="/">Home</Link>
-        <Link to="/create">New Blog</Link>
+        <Link to="/" className="hover:text-red-500">
+          Home
+        </Link>
+        <Link to="/create" className="hover:text-red-500">
+          New Blog
+        </Link>
       </div>
     </div>
   );
