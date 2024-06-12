@@ -1,13 +1,20 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
+import DeleteBlog from "./DeleteBlog";
 
 const BlogDetails = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const {
     data: blogs,
     isPending,
     error,
   } = useFetch("http://localhost:8000/blogs/" + id);
+
+  const handleDelete = () => {
+    DeleteBlog("http://localhost:8000/blogs/" + id);
+    navigate("/");
+  };
 
   return (
     <div>
@@ -30,6 +37,13 @@ const BlogDetails = () => {
           <p>{blogs.body}</p>
         </div>
       )}
+
+      <button
+        onClick={handleDelete}
+        className="border border-black w-full px-2 py-1 rounded-md hover:text-white hover:bg-red-500 hover:border-red-500 transition duration-150"
+      >
+        Delete Blog
+      </button>
     </div>
   );
 };

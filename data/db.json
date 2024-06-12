@@ -1,11 +1,6 @@
 {
   "blogs": [
     {
-      "id": "1",
-      "title": "Unreal Engine 5",
-      "body": "lorem ipsum ..."
-    },
-    {
       "id": "2",
       "title": "Unity",
       "body": "lorem ipsum ..."
@@ -19,16 +14,6 @@
       "id": "f12e",
       "title": "Jagger",
       "body": "I love my cat"
-    },
-    {
-      "id": "c626",
-      "title": "skdjbjfn safn,",
-      "body": "asdakbdm asjbdkja"
-    },
-    {
-      "id": "a283",
-      "title": "Watermelon",
-      "body": "Salamin"
     },
     {
       "id": "016e",
